@@ -1,3 +1,5 @@
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 public class Dealer extends Hand {
 
@@ -12,6 +14,7 @@ public class Dealer extends Hand {
 		String kort1 = newCard();
 		String färg1 = newSuit();
 		int värde1 = changeCard(kort1);
+
 
 		System.out.println("\nDealers card: " + kort + " of " + färg + " and " + kort1 + " of " + färg1);
 
@@ -36,6 +39,7 @@ public class Dealer extends Hand {
 		}
 		return dealerSum;
 	}
+
 
 	@Override
 	public String toString() {
