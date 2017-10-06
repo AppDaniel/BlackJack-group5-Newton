@@ -15,38 +15,10 @@ public class Mani {
 		
 			Guest spelare = new Guest(playerName, 100);
 			Dealer dealer = new Dealer();
-	
-//		boolean yourMoney = false;	
-//		while (!yourMoney) {
-//			try {
-//				money = textInput.nextInt();
-//				yourMoney = true;
-//			} catch (InputMismatchException e) {
-//				System.out.println("Wrong operator, please try agian! ");
-//				textInput.nextLine();
-//				yourMoney = false;
-//
-//			}
-//		}
 
-		
-//		System.out.println("How much would you like to bet?");
-//		boolean betMoney = false;
-//		while (!betMoney) {
-//			try {
-//				int betA = textInput.nextInt();
-//				bet = betA;
-//				betMoney = true;
-//			} catch (InputMismatchException e) {
-//				System.out.println("Wrong operator, please try to bet again! ");
-//				textInput.nextLine();
-//				betMoney = false;
-//
-//			}
-//		}
-			
 			int money = spelare.Money();
 			int bet = spelare.beta();
+			
 			do {	
 
 			if (bet > money) {
