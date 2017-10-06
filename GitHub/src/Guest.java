@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Guest extends Hand {
@@ -33,10 +34,10 @@ public class Guest extends Hand {
 
 		do {
 			if (newSum < 21) {
-				System.out.println("\nDo you want to Hit or Stay?");
+//				System.out.println("\nDo you want to Hit or Stay?");
 
 				String hit = textInput.nextLine();
-				
+				System.out.println("\nDo you want to Hit or Stay?");
 				String kort2 = newCard();
 				String färg2 = newSuit();
 				int värde2 = changeCard(kort2);
@@ -58,6 +59,44 @@ public class Guest extends Hand {
 		textInput.close();
 		return newSum;
 
+	}
+
+	protected int Money()
+	{
+		int money=0;
+		boolean yourMoney = false;	
+		while (!yourMoney) {
+			try {
+				money = textInput.nextInt();
+				yourMoney = true;
+			} catch (InputMismatchException e) {
+				System.out.println("Wrong operator, please try agian! ");
+				textInput.nextLine();
+				yourMoney = false;
+
+			}
+		}
+		return money;
+		
+	}
+	
+	protected int beta()
+	{
+		int bet=0;
+		System.out.println("How much would you like to bet?");
+		boolean betMoney = false;
+		while (!betMoney) {
+			try {
+				bet = textInput.nextInt();
+				betMoney = true;
+			} catch (InputMismatchException e) {
+				System.out.println("Wrong operator, please try to bet again! ");
+				textInput.nextLine();
+				betMoney = false;
+
+			}
+		}
+		return bet;
 	}
 
 }
