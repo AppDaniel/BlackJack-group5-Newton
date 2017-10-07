@@ -20,7 +20,9 @@ public class Mani {
 			int bet = spelare.beta();
 			
 			do {	
-
+				/*Har lagt till en Exception i den är if statment för att inte programmet
+				 *  ska crasha för att man skriver text istället för siffror
+				 */
 			if (bet > money) {
 				do {
 				System.out.println(playerName + " don't have that much money...try again");
@@ -36,7 +38,6 @@ public class Mani {
 
 					}
 				}
-//				bet = textInput.nextInt();
 				} while (bet>money);
 			} else {
 				spelare.getHand();
