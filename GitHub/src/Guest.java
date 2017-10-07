@@ -34,10 +34,10 @@ public class Guest extends Hand {
 
 		do {
 			if (newSum < 21) {
-//				System.out.println("\nDo you want to Hit or Stay?");
+				
 
 				String hit = textInput.nextLine();
-				System.out.println("\nDo you want to Hit or Stay?");
+				
 				String kort2 = newCard();
 				String färg2 = newSuit();
 				int värde2 = changeCard(kort2);
@@ -46,6 +46,7 @@ public class Guest extends Hand {
 					System.out.println("New card: " + kort2 + " of " + färg2);
 
 					 System.out.println("New total: " + (newSum + värde2));
+					 System.out.println("\nDo you want to Hit or Stay?");	
 					newSum += värde2;
 
 				} else if (hit.equals("stay")) {
