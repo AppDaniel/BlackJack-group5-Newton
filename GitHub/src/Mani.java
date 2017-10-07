@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Mani {
@@ -23,12 +24,26 @@ public class Mani {
 			if (bet > money) {
 				do {
 				System.out.println(playerName + " don't have that much money...try again");
-				bet = textInput.nextInt();
+				boolean wrongInput = false;	
+				while (!wrongInput) {
+					try {
+						bet = textInput.nextInt();
+						wrongInput = true;
+					} catch (InputMismatchException e) {
+						System.out.println("Wrong operator, please try agian! ");
+						textInput.nextLine();
+						wrongInput = false;
+
+					}
+				}
+//				bet = textInput.nextInt();
 				} while (bet>money);
 			} else {
 				spelare.getHand();
 				System.out.println(dealer.toString());
+				System.out.println("\nDo you want to Hit or Stay?");
 				int playerSum = spelare.hit();
+
 			
 				
 				if (playerSum <= 21) {
