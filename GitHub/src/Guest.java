@@ -11,16 +11,23 @@ public class Guest extends Hand {
 		this.cash = cash;
 	}
 	
-	String kort = newCard();
-	String färg = newSuit();
-	int värde = changeCard(kort);
+	String kort;
+	String färg;
+	int värde;
 
-	String kort1 = newCard();
-	String färg1 = newSuit();
-	int värde1 = changeCard(kort1);
-
+	String kort1;
+	String färg1 ;
+	int värde1;
+	 
 	void getHand() {
-		
+		 kort = newCard();
+		 färg = newSuit();
+		 värde = changeCard(kort);
+		 
+		 kort1 = newCard();
+		 färg1 = newSuit();
+		 värde1 = changeCard(kort1);
+		 
 		System.out.println(kort+" of "+färg+ " and "+kort1+" of "+färg1);
 		int totalsum = värde + värde1;
 		System.out.println("Your total sum is: " + totalsum);
@@ -34,7 +41,7 @@ public class Guest extends Hand {
 
 		do {
 			if (newSum < 21) {
-				
+				System.out.println("\nDo you want to Hit or Stay?");
 
 				String hit = textInput.nextLine();
 				
@@ -46,7 +53,6 @@ public class Guest extends Hand {
 					System.out.println("New card: " + kort2 + " of " + färg2);
 
 					 System.out.println("New total: " + (newSum + värde2));
-					 System.out.println("\nDo you want to Hit or Stay?");	
 					newSum += värde2;
 
 				} else if (hit.equals("stay")) {
@@ -57,11 +63,10 @@ public class Guest extends Hand {
 
 			}
 		} while (newSum != 21 && newSum <= 20);
-		textInput.close();
+	//	textInput.close();
 		return newSum;
 
 	}
-
 	protected int Money()
 	{
 		int money=0;
@@ -69,6 +74,7 @@ public class Guest extends Hand {
 		while (!yourMoney) {
 			try {
 				money = textInput.nextInt();
+				textInput.nextLine();
 				yourMoney = true;
 			} catch (InputMismatchException e) {
 				System.out.println("Wrong operator, please try agian! ");
@@ -89,6 +95,7 @@ public class Guest extends Hand {
 		while (!betMoney) {
 			try {
 				bet = textInput.nextInt();
+				textInput.nextLine();
 				betMoney = true;
 			} catch (InputMismatchException e) {
 				System.out.println("Wrong operator, please try to bet again! ");
@@ -98,6 +105,6 @@ public class Guest extends Hand {
 			}
 		}
 		return bet;
-	}
+}
 
 }

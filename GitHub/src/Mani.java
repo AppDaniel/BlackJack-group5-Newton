@@ -1,4 +1,3 @@
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Mani {
@@ -20,53 +19,35 @@ public class Mani {
 			int bet = spelare.beta();
 			
 			do {	
-				/*Har lagt till en Exception i den är if statment för att inte programmet
-				 *  ska crasha för att man skriver text istället för siffror
-				 */
+
 			if (bet > money) {
 				do {
 				System.out.println(playerName + " don't have that much money...try again");
-				boolean wrongInput = false;	
-				while (!wrongInput) {
-					try {
-						bet = textInput.nextInt();
-						wrongInput = true;
-					} catch (InputMismatchException e) {
-						System.out.println("Wrong operator, please try agian! ");
-						textInput.nextLine();
-						wrongInput = false;
+				bet = textInput.nextInt();				
 
-					}
-				}
 				} while (bet>money);
 			} else {
 				spelare.getHand();
+				dealer.genereraKort();
 				System.out.println(dealer.toString());
-				System.out.println("\nDo you want to Hit or Stay?");
 				int playerSum = spelare.hit();
-
 			
 				
 				if (playerSum <= 21) {
 					int dealerSum = dealer.dealaersChoice();
 					if (dealerSum >= playerSum && dealerSum <= 21 || playerSum > 21) {
 						System.out.println("Dealer Win");
-						System.out.println("New Balance: " + (money - bet));
-						break;
-						
+						money = money - bet;
 					} else
 						System.out.println("You win!");
-					System.out.println("New Balance: " + (bet + money));
-					break;
-					
+						money = money + (bet * 2);
 				} else
 					System.out.println("\nYou got to much, Dealer Win");
-				System.out.println("New Balance: " + (money - bet));
-				break;
+					money = money - bet;
 			}
+			System.out.println("\nNew Balance: " + (money));
 		} while (bet <= money);
 
-
 		textInput.close();
-	}
+}
 }

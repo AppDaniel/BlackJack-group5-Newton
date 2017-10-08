@@ -1,19 +1,31 @@
 
 public class Dealer extends Hand {
 
-	private String kort = newCard();
-	private String färg = newSuit();
+	String kort;
+	String färg;
+	int värde;
 
+	String kort1;
+	String färg1;
+	int värde1;
 
+	protected void genereraKort() { 
+		kort = newCard();
+		färg = newSuit();
+		värde = changeCard(kort);
+				
+		kort1 = newCard();
+		färg1 = newSuit();
+		värde1 = changeCard(kort1);
+	}
+	
+	
+	
+	
+	
 	protected int dealaersChoice() {
-		
 
-		int värde = changeCard(kort);
-		String kort1 = newCard();
-		String färg1 = newSuit();
-		int värde1 = changeCard(kort1);
-
-
+		 
 		System.out.println("\nDealers card: " + kort + " of " + färg + " and " + kort1 + " of " + färg1);
 
 		int dealerSum = värde + värde1;
@@ -37,7 +49,6 @@ public class Dealer extends Hand {
 		}
 		return dealerSum;
 	}
-
 
 	@Override
 	public String toString() {
