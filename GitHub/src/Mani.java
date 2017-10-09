@@ -17,17 +17,21 @@ public class Mani {
 		Dealer dealer = new Dealer();
 
 		int money = spelare.Money();
-		int bet = spelare.beta();
-
+		int bet=1;
+		
 		do {
+		bet = spelare.beta();
+		boolean wrongInput;
+		
 
 			if (bet > money) {
 				do {
 					System.out.println(playerName + " don't have that much money...try again");
-					boolean wrongInput = false;
+					wrongInput = false;
 					while (!wrongInput) {
 						try {
 							bet = textInput.nextInt();
+							textInput.nextLine();
 							wrongInput = true;
 						} catch (InputMismatchException e) {
 							System.out.println("Wrong operator, please try agian! ");
@@ -36,8 +40,8 @@ public class Mani {
 						}
 					}
 
-				} while (bet > money);
-			} else {
+				} while (bet > money && !wrongInput == false);
+			} else if(bet !=0) {
 				spelare.getHand();
 				dealer.genereraKort();
 				System.out.println(dealer.toString());
@@ -55,8 +59,14 @@ public class Mani {
 					System.out.println("\nYou got to much, Dealer Win");
 				money =  money-bet;
 			}
-			System.out.println("\n"+playerName+"'s Balance: " + (money));
-		} while (bet <= money);
+			System.out.println("\n"+playerName+"'s Balance: " + ("€"+money));
+		} while (bet <= money  && bet !=0);
+		
+		
+		if (money > 0)
+			System.out.println("Thanks for playing you are going home with €"+money+" have a nice day!");
+		else
+		System.out.println("Game is now over, your Balance is €"+money);
 
 		textInput.close();
 	}
