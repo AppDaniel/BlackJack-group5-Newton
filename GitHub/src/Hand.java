@@ -112,7 +112,7 @@ public class Hand extends Deck {
 				try {
 					System.out.println("You have a chioce of you ace 1 or 11?");
 					a = textInput.nextInt();
-//					textInput.nextLine();
+					textInput.nextLine();
 					wrongInput = true;
 				} catch (InputMismatchException e) {
 					System.out.println("Value is not corret");
