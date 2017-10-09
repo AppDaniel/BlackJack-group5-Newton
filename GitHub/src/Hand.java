@@ -61,11 +61,12 @@ public class Hand extends Deck {
 
 		return value;
 	}
+	
+	Scanner textInput = new Scanner(System.in);
+	
 	protected int changeNewCard(String aNewCard) {
-		Scanner textInput = new Scanner(System.in);
 		String card = aNewCard;
 		int value = 0;
-		int ace = 0;
 		switch (card) {
 		case "TWOO":
 			value += 2;
@@ -113,7 +114,10 @@ public class Hand extends Deck {
 					System.out.println("You have a chioce of you ace 1 or 11?");
 					a = textInput.nextInt();
 					textInput.nextLine();
-					wrongInput = true;
+					if (a==11 || a== 1)
+						wrongInput = true;
+					else
+						wrongInput = false;
 				} catch (InputMismatchException e) {
 					System.out.println("Value is not corret");
 					textInput.nextLine();
@@ -121,15 +125,16 @@ public class Hand extends Deck {
 				}
 
 			}	
+			if (a == 11 || a == 1)
 			value += a;
 			break;
 
 			} while (a !=11 || a!=1 && !wrongInput == false);
 
 		}
-
 		return value;
 	}
 
 
 }
+
