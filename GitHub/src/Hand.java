@@ -116,7 +116,6 @@ public class Hand extends Deck {
 					wrongInput = true;
 				} catch (InputMismatchException e) {
 					System.out.println("Value is not corret");
-					a = textInput.nextInt();
 					textInput.nextLine();
 					wrongInput = false;
 				}
