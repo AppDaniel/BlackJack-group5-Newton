@@ -60,7 +60,7 @@ public class Mani {
 				money =  money-bet;
 			}
 			System.out.println("\n"+playerName+"'s Balance: " + ("€"+money));
-		} while (bet <= money  && bet !=0);
+		} while (0 < money  && bet !=0);
 		
 		
 		if (money > 0)
