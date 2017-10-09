@@ -121,10 +121,11 @@ public class Hand extends Deck {
 				}
 
 			}	
-
-			} while (a !=11 || a!=1);
 			value += a;
 			break;
+
+			} while (a !=11 || a!=1);
+
 		}
 
 		return value;
