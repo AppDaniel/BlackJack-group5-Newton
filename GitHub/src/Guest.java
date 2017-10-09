@@ -47,7 +47,7 @@ public class Guest extends Hand {
 				
 				String kort2 = newCard();
 				String färg2 = newSuit();
-				int värde2 = changeCard(kort2);
+				int värde2 = changeNewCard(kort2);
 
 				if (hit.equals("hit")) {
 					System.out.println("New card: " + kort2 + " of " + färg2);
@@ -106,5 +106,6 @@ public class Guest extends Hand {
 		}
 		return bet;
 }
+
 
 }
