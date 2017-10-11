@@ -6,9 +6,6 @@ public class Mani {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Scanner textInput = new Scanner(System.in);
-		
-		Deck testaaaa = new Deck();
-		testaaaa.newCard3();
 
 		System.out.println("Hello and Welcome to Casino group 5!");
 		System.out.println("What's your name sir/miss?");
@@ -67,7 +64,7 @@ public class Mani {
 		
 		
 		if (money > 0)
-			System.out.println("Thanks for playing "+playerName+" you are going home with €"+money+" have a nice day!");
+			System.out.println("Thanks for playing you are going home with €"+money+" have a nice day!");
 		else
 		System.out.println("Game is now over, your Balance is €"+money);
 
