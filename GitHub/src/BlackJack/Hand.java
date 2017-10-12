@@ -67,15 +67,15 @@ public class Hand {
 				case JACK: totalValue += 10; break;
 				case QUEEN: totalValue += 10; break;
 				case KING: totalValue += 10; break;
-				case ACE: totalValue += 11; break;
+				case ACE: aces+=1; break;
 				}
 			}
-			for(int i = 0; i < aces; i++) {
-				if(totalValue > 10) {
-					aces = 1;
-				}
-			}
-			totalValue += aces;
+			if (aces == 1) {
+				if (totalValue > 10) 
+					totalValue += 1;
+				else 
+					totalValue +=11;
+			}	
 			return totalValue;
 		}
 		public Deck getCard(int i) {
