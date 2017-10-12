@@ -2,8 +2,6 @@ package BlackJack;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import java.util.InputMismatchException;
-import java.util.Scanner;
 
 public class Guest extends Hand {
 	String name;
@@ -16,6 +14,7 @@ public class Guest extends Hand {
 	
 	Hand playingDeck = new Hand();
 	Hand playerDeck = new Hand();
+	//Nya kort
 	
 	void getHand(Hand playingDeck) {
 		playerDeck.draw(playingDeck);
@@ -29,28 +28,29 @@ public class Guest extends Hand {
 	Scanner textInput = new Scanner (System.in);
 	
 	protected int hit(Hand playingDeck) {
-		
+		int newSum=0;
 		do {
 			if(playerDeck.cardValue() < 21) {
 				System.out.println("\nDo you want to Hit or Stay?");
 				
 				String hit = textInput.nextLine();
-				
+			
 				
 				if(hit.equals("hit")) {
 					playerDeck.draw(playingDeck);
 					System.out.println("New card: " + playerDeck);
-					
-					System.out.println("New total: " + (playerDeck.cardValue()));
+					newSum = playerDeck.cardValue();
+					System.out.println("New total: " + newSum);
 					
 				}else if(hit.equals("stay")) {
+					newSum = playerDeck.cardValue();
 					break;
 				}
 			}
 		}while (playerDeck.cardValue() != 21 && playerDeck.cardValue() <= 20);
 		
 		playerDeck.moveAllToDeck(playingDeck);
-		return playerDeck.cardValue();
+		return newSum;
 	}
 	protected int Money() {
 		int money = 0; 

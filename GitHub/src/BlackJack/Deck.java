@@ -1,5 +1,8 @@
 package BlackJack;
 
+import BlackJack.Hand.Suits;
+import BlackJack.Hand.Value;
+
 public class Deck {
 		
 	public Value value;

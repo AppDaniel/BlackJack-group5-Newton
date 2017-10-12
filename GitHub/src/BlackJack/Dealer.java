@@ -1,5 +1,4 @@
 package BlackJack;
-import BlackJackGroupSignment.Hand;
 
 public class Dealer extends Hand {
 	boolean endRun = true;

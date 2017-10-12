@@ -2,8 +2,6 @@ package BlackJack;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import java.util.InputMismatchException;
-import java.util.Scanner;
 
 public class Mani {
 
@@ -12,14 +10,13 @@ public class Mani {
 		Hand playingDeck = new Hand();
 		playingDeck.createFullDeck();
 		playingDeck.shuffle();
-		boolean endRun = true;
 		Scanner textinput = new Scanner(System.in);
 		
-		System.out.println("Hello and Weclome yo Casino group 5!");
+		System.out.println("Hello and Weclome to Casino group 5!");
 		System.out.println("What's your name sir/miss?");
 		String playerName = textinput.nextLine();
 		
-		System.out.println("Hello " + playerName + " how much money do you ahve?");
+		System.out.println("Hello " + playerName + " how much money do you have?");
 		
 		Guest player = new Guest(playerName, 100);
 		Dealer dealer = new Dealer();
@@ -54,6 +51,7 @@ public class Mani {
 				
 				int playerSum = player.hit(playingDeck);
 				
+				System.out.println("Spelarens värde "+playerSum);
 				if(playerSum <= 21) {
 					int dealerSum = dealer.dealerChoice(playingDeck);
 					
@@ -75,7 +73,7 @@ public class Mani {
 		}while(0 < money && bet != 0);
 		
 		if(money >0)
-			System.out.println("Thanks for playing you are going home with €"+money);
+			System.out.println("Thanks for playing "+playerName+" you are going home with €"+money);
 		else
 			System.out.println("Game is over, your Balance is €"+money);
 		

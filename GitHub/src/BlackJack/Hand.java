@@ -1,6 +1,4 @@
 package BlackJack;
-import java.util.InputMismatchException;
-import java.util.Scanner;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -12,7 +10,6 @@ public class Hand {
 		public enum Value{
 			TWOO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING, ACE, 
 		}
-		//create deck
 		private ArrayList<Deck> cards;
 		
 		public Hand() {
@@ -23,14 +20,13 @@ public class Hand {
 			for(Suits cardSuits : Suits.values()) {
 				for(Value cardValue : Value.values()) {
 					
-					// add bew Card
 					this.cards.add(new Deck(cardValue, cardSuits));
 				}
 			}
 		}
 		public String toString() {
 			String cardListOutput = "";
-			int i = 0;
+
 			for(Deck aCard : this.cards) {
 				cardListOutput += "\n" + aCard.toString();
 			}
@@ -38,7 +34,6 @@ public class Hand {
 		}
 		public void shuffle() {
 			ArrayList<Deck> shuffleDeck = new ArrayList<Deck>();
-			//Use Random
 			Random random = new Random();
 			int randomCardIndex = 0;
 			int originalSize = this.cards.size();
