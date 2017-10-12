@@ -44,7 +44,6 @@ public class Mani {
 				}while(bet > money && !wrongInput == false);
 			}else if(bet != 0) {
 				int firstSum = player.getHand(playingDeck);
-				System.out.println(firstSum);
 				if(firstSum != 21) {
 				dealer.generateCard(playingDeck);
 				System.out.println(dealer.toString());
@@ -63,11 +62,11 @@ public class Mani {
 					
 				}else
 					System.out.println("\nBusted, Dealer Win!");
-					money = money - bet;
+					money = money -(bet*2);
 				
 			}else
 				System.out.println("BLACK JACK!!");
-				money = money + (bet*2);
+				money = money + (bet);
 			}
 			System.out.println("\n"+playerName+"'s Balance: " + ("€"+money));
 			player.moveAllToDeck(playingDeck);
