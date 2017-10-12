@@ -16,13 +16,14 @@ public class Guest extends Hand {
 	Hand playerDeck = new Hand();
 	int newSum=0;
 	
-	void getHand(Hand playingDeck) {
+	int getHand(Hand playingDeck) {
 		playerDeck.draw(playingDeck);
 		playerDeck.draw(playingDeck);
 		
 		System.out.println(playerDeck);
 		newSum=playerDeck.cardValue();
 		System.out.println("Your total sum is: " + playerDeck.cardValue());
+		return newSum;
 	}
 	
 	Scanner textInput = new Scanner (System.in);

@@ -39,16 +39,12 @@ public class Hand {
 			int originalSize = this.cards.size();
 			for(int i = 0; i<originalSize; i++) {
 				
-				//Generate random Index rand.next
-				randomCardIndex = random.nextInt((this.cards.size()-1-0)+1)+0;
-				
+				randomCardIndex = random.nextInt((this.cards.size()));
 				shuffleDeck.add(this.cards.get(randomCardIndex));
-				//remove from doriginal deck
 				this.cards.remove(randomCardIndex);
 			}
 			this.cards = shuffleDeck;
 		}
-		//give cards values
 		public int cardValue() {
 			int totalValue = 0;
 			int aces = 0; 
@@ -94,7 +90,6 @@ public class Hand {
 		public int deckSize() {
 			return this.cards.size();
 		}
-		//put cards back deck
 		public void moveAllToDeck(Hand move) {
 			int thisDeckSize = this.cards.size();
 			
