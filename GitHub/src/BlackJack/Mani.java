@@ -53,7 +53,12 @@ public class Mani {
 				
 				System.out.println("Spelarens värde "+playerSum);
 				if(playerSum <= 21) {
+					
 					int dealerSum = dealer.dealerChoice(playingDeck);
+
+			
+					
+					System.out.println("Dealers värde "+dealerSum);
 					
 					if(dealerSum >= playerSum && dealerSum <= 21 || playerSum > 21) {	
 						System.out.println("Dealer Win!");
