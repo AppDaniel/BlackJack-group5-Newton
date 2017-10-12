@@ -14,6 +14,7 @@ public class Guest extends Hand {
 	
 	Hand playingDeck = new Hand();
 	Hand playerDeck = new Hand();
+	//Nya kort
 	
 	void getHand(Hand playingDeck) {
 		playerDeck.draw(playingDeck);
