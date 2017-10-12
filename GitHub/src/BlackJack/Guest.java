@@ -14,21 +14,20 @@ public class Guest extends Hand {
 	
 	Hand playingDeck = new Hand();
 	Hand playerDeck = new Hand();
-	//Nya kort
+	int newSum=0;
 	
 	void getHand(Hand playingDeck) {
 		playerDeck.draw(playingDeck);
 		playerDeck.draw(playingDeck);
 		
 		System.out.println(playerDeck);
-		
+		newSum=playerDeck.cardValue();
 		System.out.println("Your total sum is: " + playerDeck.cardValue());
 	}
 	
 	Scanner textInput = new Scanner (System.in);
 	
 	protected int hit(Hand playingDeck) {
-		int newSum=0;
 		do {
 			if(playerDeck.cardValue() < 21) {
 				System.out.println("\nDo you want to Hit or Stay?");

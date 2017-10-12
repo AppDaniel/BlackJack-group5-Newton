@@ -2,15 +2,13 @@ package BlackJack;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-
 public class Mani {
 
 	public static void main(String[] args) {
-		
+		Scanner textinput = new Scanner(System.in);
 		Hand playingDeck = new Hand();
 		playingDeck.createFullDeck();
 		playingDeck.shuffle();
-		Scanner textinput = new Scanner(System.in);
 		
 		System.out.println("Hello and Weclome to Casino group 5!");
 		System.out.println("What's your name sir/miss?");
@@ -18,7 +16,7 @@ public class Mani {
 		
 		System.out.println("Hello " + playerName + " how much money do you have?");
 		
-		Guest player = new Guest(playerName, 100);
+		Guest player = new Guest(playerName, 0);
 		Dealer dealer = new Dealer();
 		
 		int money = player.Money();
@@ -49,16 +47,10 @@ public class Mani {
 				dealer.generateCard(playingDeck);
 				System.out.println(dealer.toString());
 				
-				int playerSum = player.hit(playingDeck);
+				int playerSum = player.hit(playingDeck);				
 				
-				System.out.println("Spelarens värde "+playerSum);
 				if(playerSum <= 21) {
-					
 					int dealerSum = dealer.dealerChoice(playingDeck);
-
-			
-					
-					System.out.println("Dealers värde "+dealerSum);
 					
 					if(dealerSum >= playerSum && dealerSum <= 21 || playerSum > 21) {	
 						System.out.println("Dealer Win!");
@@ -67,7 +59,7 @@ public class Mani {
 						System.out.println("You Win!");
 					money = money + (bet*2);
 					
-				}else 
+				}else
 					System.out.println("\nBusted, Dealer Win!");
 					money = money - bet;
 				
