@@ -35,7 +35,6 @@ public class Mani {
 							wrongInput = true;
 						} catch (InputMismatchException e) {
 							System.out.println("Wrong operator, please try agian! ");
-							textInput.nextLine();
 							wrongInput = false;
 						}
 					}
