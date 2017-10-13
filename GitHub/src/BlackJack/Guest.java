@@ -4,8 +4,9 @@ import java.util.Scanner;
 
 
 public class Guest extends Hand {
-	String name;
-	int Cash;
+	
+	protected String name;
+	protected int Cash;
 	
 	public Guest(String name, int cash) {
 		this.name = name;
@@ -14,7 +15,7 @@ public class Guest extends Hand {
 	
 	Hand playingDeck = new Hand();
 	Hand playerDeck = new Hand();
-	int newSum=0;
+	protected int newSum=0;
 	
 	int getHand(Hand playingDeck) {
 		playerDeck.draw(playingDeck);
@@ -70,7 +71,7 @@ public class Guest extends Hand {
 	}
 	protected int beta() {
 		int bet = 0;
-		System.out.println("how much would you like to bet?");
+		System.out.println("How much would you like to bet?");
 		boolean betMoney = false;
 		while(!betMoney) {
 			try {
