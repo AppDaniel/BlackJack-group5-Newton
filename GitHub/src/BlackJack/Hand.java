@@ -12,11 +12,11 @@ public class Hand {
 		}
 		private ArrayList<Deck> cards;
 		
-		public Hand() {
+		protected Hand() {
 			this.cards = new ArrayList<Deck>();
 		}
 		
-		public void createFullDeck() {
+		protected void createFullDeck() {
 			for(Suits cardSuits : Suits.values()) {
 				for(Value cardValue : Value.values()) {
 					
@@ -32,7 +32,7 @@ public class Hand {
 			}
 			return cardListOutput;
 		}
-		public void shuffle() {
+		protected void shuffle() {
 			ArrayList<Deck> shuffleDeck = new ArrayList<Deck>();
 			Random random = new Random();
 			int randomCardIndex = 0;
@@ -45,7 +45,7 @@ public class Hand {
 			}
 			this.cards = shuffleDeck;
 		}
-		public int cardValue() {
+		protected int cardValue() {
 			int totalValue = 0;
 			int aces = 0; 
 			for(Deck aCard : this.cards) {
@@ -74,23 +74,23 @@ public class Hand {
 			}	
 			return totalValue;
 		}
-		public Deck getCard(int i) {
+		protected Deck getCard(int i) {
 			return this.cards.get(i);
 		}
-		public void removeCard(int i) {
+		protected void removeCard(int i) {
 			this.cards.remove(i);
 		}
-		public void addCard(Deck addCard) {
+		protected void addCard(Deck addCard) {
 			this.cards.add(addCard);
 		}
-		public void draw(Hand playingDeck) {
+		protected void draw(Hand playingDeck) {
 			this.cards.add(playingDeck.getCard(0));
 			playingDeck.removeCard(0);
 		}
-		public int deckSize() {
+		protected int deckSize() {
 			return this.cards.size();
 		}
-		public void moveAllToDeck(Hand move) {
+		protected void moveAllToDeck(Hand move) {
 			int thisDeckSize = this.cards.size();
 			
 			for(int i = 0; i < thisDeckSize; i++) {
