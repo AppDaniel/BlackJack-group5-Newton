@@ -55,20 +55,25 @@ public class Mani {
 					
 					if(dealerSum >= playerSum && dealerSum <= 21 || playerSum > 21) {	
 						System.out.println("Dealer Win!");
-						money = money -(bet*2);
-					}else 
+						money -= bet;
+					}else {
 						System.out.println("You Win!");
-					money = money + (bet*2);
-					
-				}else
+					money += bet;
+					}
+				}else {
 					System.out.println("\nBusted, Dealer Win!");
-					money = money -(bet*2);
-				
-			}else
+					money -= bet;
+				}
+			}else {
+				System.out.println("---------------------------");
 				System.out.println("BLACK JACK!!");
-				money = money + (bet);
+				money += bet;
+				System.out.println("---------------------------");
 			}
-			System.out.println("\n"+playerName+"'s Balance: " + ("€"+money));
+			}
+			System.out.println("\n---------------------------");
+			System.out.println(playerName+"'s Balance: " + ("€"+money));
+			System.out.println("---------------------------");
 			player.moveAllToDeck(playingDeck);
 			dealer.moveAllToDeck(playingDeck);
 		}while(0 < money && bet != 0);
