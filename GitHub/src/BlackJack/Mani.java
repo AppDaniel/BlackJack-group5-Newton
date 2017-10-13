@@ -43,11 +43,11 @@ public class Mani {
 					}
 				}while(bet > money && !wrongInput == false);
 			}else if(bet != 0) {
+				
 				int firstSum = player.getHand(playingDeck);
 				if(firstSum != 21) {
 				dealer.generateCard(playingDeck);
 				System.out.println(dealer.toString());
-				
 				int playerSum = player.hit(playingDeck);				
 				
 				if(playerSum <= 21) {  
@@ -76,6 +76,8 @@ public class Mani {
 			System.out.println("---------------------------");
 			player.moveAllToDeck(playingDeck);
 			dealer.moveAllToDeck(playingDeck);
+			dealer.newDeck();
+			player.newDeck2();
 		}while(0 < money && bet != 0);
 		
 		if(money >0)
