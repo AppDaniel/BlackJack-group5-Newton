@@ -21,28 +21,33 @@ public class Mani {
 		
 		int money = player.Money();
 		int bet = 1;
-		
+		boolean wrongInput=false;
 		do {
 			bet = player.beta();
-			boolean wrongInput;
 			
-			if(bet > money) {
-				do {
-					System.out.println(playerName + " don't have that much money...try again.");
+			
+			while(bet > money && !wrongInput == false); {
+				System.out.println(playerName + " don't have that much money...try again.");
 					wrongInput = false;
 					while(!wrongInput) {
+						
 						try {
 							bet=textinput.nextInt();
-							textinput.nextLine();
-							wrongInput = true;
+						
+							if (bet <= money) {
+								wrongInput = true;
+								break;
+							}else bet=0;
+							System.out.println(playerName + " don't have that much money...try again.");
 						}catch(InputMismatchException e) {
 							System.out.println("Wrong operator, please try again!");
 							textinput.nextLine();
 							wrongInput = false;
 						}
 					}
-				}while(bet > money && !wrongInput == false);
-			}else if(bet != 0) {
+				
+			}
+			if(bet != 0) {
 				
 				int firstSum = player.getHand(playingDeck);
 				if(firstSum != 21) {
