@@ -18,8 +18,10 @@ public class Guest extends Hand {
 	protected int newSum=0;
 	
 	int getHand(Hand playingDeck) {
-		playerDeck.draw(playingDeck);
-		playerDeck.draw(playingDeck);
+		Hand a = playingDeck;
+		Hand b = playingDeck;
+		playerDeck.draw(a);
+		playerDeck.draw(b);
 		
 		System.out.println(playerDeck);
 		newSum=playerDeck.cardValue();
