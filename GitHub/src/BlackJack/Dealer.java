@@ -1,16 +1,13 @@
 package BlackJack;
 
 public class Dealer extends Hand {
-	
 	Hand playingDeck = new Hand();
 	Hand dealerDeck = new Hand();
 
 	protected void generateCard(Hand playingDeck) {
-		Hand a = playingDeck;
-		Hand b = playingDeck;
-		dealerDeck.draw(a);
-		dealerDeck.draw(b);
-		
+
+		dealerDeck.draw(playingDeck);
+		dealerDeck.draw(playingDeck);
 		
 
 	}
@@ -30,10 +27,12 @@ public class Dealer extends Hand {
 		summan = dealerDeck.cardValue();
 		System.out.println("Deler's hand is valued at: " + summan);
 
-		dealerDeck.moveAllToDeck(playingDeck);
 		return summan;
 	}
-
+	protected void newDeck()
+	{
+		dealerDeck.moveAllToDeck(playingDeck);
+	}
 	@Override
 	public String toString() {
 		return ("Dealers Cards is " + dealerDeck.getCard(0).toString() + " and [Hidden]");
