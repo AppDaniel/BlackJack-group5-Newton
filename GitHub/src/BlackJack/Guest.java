@@ -18,14 +18,12 @@ public class Guest extends Hand {
 	protected int newSum=0;
 	
 	int getHand(Hand playingDeck) {
-		Hand a = playingDeck;
-		Hand b = playingDeck;
-		playerDeck.draw(a);
-		playerDeck.draw(b);
+		playerDeck.draw(playingDeck);
+		playerDeck.draw(playingDeck);
 		
 		System.out.println(playerDeck);
 		newSum=playerDeck.cardValue();
-		System.out.println("Your total sum is: " + playerDeck.cardValue());
+		System.out.println("Your total sum is: " + newSum);
 		return newSum;
 	}
 	
@@ -52,7 +50,6 @@ public class Guest extends Hand {
 			}
 		}while (playerDeck.cardValue() != 21 && playerDeck.cardValue() <= 20);
 		
-		playerDeck.moveAllToDeck(playingDeck);
 		return newSum;
 	}
 	protected int Money() {
@@ -74,6 +71,7 @@ public class Guest extends Hand {
 	protected int beta() {
 		int bet = 0;
 		System.out.println("How much would you like to bet?");
+		System.out.println("0 = end game");
 		boolean betMoney = false;
 		while(!betMoney) {
 			try {
@@ -87,5 +85,9 @@ public class Guest extends Hand {
 			}
 		}
 		return bet;
+	}
+	protected void newDeck2()
+	{
+		playerDeck.moveAllToDeck(playingDeck);
 	}
 }
