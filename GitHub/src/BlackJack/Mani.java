@@ -21,11 +21,12 @@ public class Mani {
 		
 		int money = player.Money();
 		int bet = 1;
-		boolean wrongInput=false;
+		
 		do {
 			bet = player.beta();
+			boolean wrongInput=false;
 			
-			
+			if (bet>money) {
 			while(bet > money && !wrongInput == false); {
 				System.out.println(playerName + " don't have that much money...try again.");
 					wrongInput = false;
@@ -46,6 +47,7 @@ public class Mani {
 						}
 					}
 				
+			}
 			}
 			if(bet != 0) {
 				
